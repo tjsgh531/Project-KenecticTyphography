@@ -23,5 +23,5 @@ class App{
 }
 
 window.onload = () => {
-    new app();
+    new App();
 };
