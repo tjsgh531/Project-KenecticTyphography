@@ -54,6 +54,25 @@ export class Particle {
 
         const red = ((this.rgb >> 16) & 0xFF) | 0;
         const green = ((this.rgb >> 8) & 0xFF) | 0;
+        const blue = (this.rgb & 0xFF) | 0;
+        const color =`rgb(${red}, ${green}, ${blue})`;
+
+        const str = this.textArr[this.cur];
+
+        ctx.beginPath();
+        ctx.fillStyle = color;
+
+        const fontWidth = 700;
+        const fontSize = 14;
+        const fontName = 'Hind';
+        ctx.font = `${fontWidth} ${fontSize}px ${fontName}`;
+        ctx.textBaseline = `middle`;
+        const textPos = ctx.measureText(str);
+        ctx.fillText(
+            str,
+            this.x - (textPos.width / 2),
+            this.y + ((fontSize - textPos.actualBoundingBoxAscent) / 2)
+        );
     }
 
     shuffle(arr){
