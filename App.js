@@ -12,7 +12,7 @@ class App{
             fontactive : () => {
                 this.text = new Text();
                 this.text.setText(
-                    'A',
+                    'gA',
                     2,
                     document.body.clientWidth,
                     document.body.clientHeight,
