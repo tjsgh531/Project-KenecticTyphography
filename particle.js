@@ -7,6 +7,8 @@ const COLOR_SPEED = 0.12;
 
 export class Particle {
     constructor(pos) {
+        /*파라미터 pos는 text클래스의 dotPos()메소드에 의해
+         Particle이 있어야 하는 좌표*/
         this.savedX = pos.x;
         this.savedY = pos.y;
         this.x = pos.x;
@@ -25,11 +27,7 @@ export class Particle {
         this.savedRgb = 0x000000;
         this.rgb = 0x000000;
     }
-
-    collide(){
-        this.rgb = 0xf3316e;
-        this.textArr = this.shuffle(this.textArr);
-    }
+    
     draw(ctx, t){
         this.rgb += (this.savedRgb - this.rgb) * COLOR_SPEED;
 

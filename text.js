@@ -9,10 +9,12 @@ export class Text{
         this.ctx = this.canvas.getContext('2d');
     }
 
+    /* particle이 있어야 할 좌표의 배열을 리턴함 */
     setText(str, density, stageWidth, stageHeight){
         this.canvas.width = stageWidth;
         this.canvas.height = stageHeight;
 
+        /* 배경에 글자를 칠함 */
         const myText = str;
         const fontWidth = 700;
         const fontSize = 800;
@@ -29,6 +31,8 @@ export class Text{
             fontPos.actualBoundingBoxAscent + fontPos.actualBoundingBoxDescent + ((stageHeight - fontSize) / 2)
         );
 
+        /* 칠한 배경의 imageDate값이 있으므로
+         칠하지 않은것과 비교하여 좌표값을 얻어냄 */
         return this.dotPos(density, stageWidth, stageHeight);
     }
 
@@ -47,7 +51,7 @@ export class Text{
             ++i;
             const slide = (i % 2) == 0;
             width = 0;
-            if(slide == 1) {
+            if(slide) {
                 width += 6;
             }
 
