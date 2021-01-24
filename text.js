@@ -48,15 +48,19 @@ export class Text{
         let pixel;
 
         for(let height = 0 ; height < stageHeight; height += density){
+            /* width값을 짝수번째는 6, 홀수번째는 0 
+                초기값을 다르게 해줌으로서 지그재그로 Particle이 자리잡을 수 있게함*/
             ++i;
             const slide = (i % 2) == 0;
             width = 0;
             if(slide) {
-                width += 6;
+                width = 6;
             }
 
+            /* density간격씩 width를 검사하여 a값이 0이 아니면 색칠된 부분으로 판별 */
             for(width; width < stageWidth; width += density){
                 pixel = imageData[((width + (height * stageWidth)) * 4) -1];
+
                 if(pixel != 0 &&
                     width > 0 &&
                     width < stageWidth &&

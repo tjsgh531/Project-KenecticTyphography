@@ -22,6 +22,7 @@ class App{
                 window.addEventListener('resize', this.resize.bind(this), false);
                 this.resize();
 
+                
                 requestAnimationFrame(this.animate.bind(this));
             }
           });
@@ -39,6 +40,8 @@ class App{
     }
 
     animate(t){
+        console.log(' 몇번 실행 되는 것이냐?');
+        console.log(t);
         //requestAnimationFrame(this.animate.bind(this));
 
         this.ctx.clearRect(0,0,this.stageWidth,this.stageHeight);
